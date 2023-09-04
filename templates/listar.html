@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+   
+</head>
+<body>
+    <h1>Clientes Registrados:</h1>
+  <table>
+    <thead>
+        <tr>
+            <th>username</th>
+            <th>email</th>
+        </tr>
+    </thead>
+    <tbody> 
+        {%for cliente in clientes%} 
+
+        <tr> 
+            <td>{{cliente.username}}</td>
+            <td>{{cliente.email}} </td>
+        </tr>
+        {%endfor%}
+    </tbody>
+  </table>    
+</body>
+</html>
