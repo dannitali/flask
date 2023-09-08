@@ -1,7 +1,7 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block head%}
-{{ super() }} 
+    {{ super() }} 
 {% endblock %}
 
 
@@ -11,4 +11,7 @@
     {%block content%}
     {%endblock%}
 
-{%endblock%}
+    {% block scripts %}
+          {{ super() }}
+    {% endblock %}
+{% endblock %}
