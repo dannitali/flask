@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{%block content%}
+{% for mensaje in get_flashed_messages() %}
+<div class="alert alert-success">
+  <button type="button"
+  class="close"
+  data-dismiss="alert">
+      &times;
+  </button>
+  {{ mensaje }}
+</div>
+{% endfor %}
+<h1>Iniciar Sesion</h1>
+<form accion="" method="POST" novalidate 
+ enctype="multipart/form-data">
+    {{ wtf.quick_form(form)}}
+</form>
+
+{%endblock%}
+

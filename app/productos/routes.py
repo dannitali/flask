@@ -3,6 +3,7 @@ from app.productos import productos
 import app
 import os 
 from .forms import NewProductForm, EditProducFrom
+from flask_login import login_required
 
 
 @productos.route('/create', methods = ['GET', 'POST'])
@@ -25,6 +26,7 @@ def crear():
 
 
 @productos.route('/listar')
+@login_required
 def listar():
     #selecionar los productos
     productos = app.models.Producto.query.all()

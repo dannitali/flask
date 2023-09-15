@@ -1,12 +1,13 @@
 #importaciones de dependencias
-
 from flask import Flask, render_template
+from flask_login import LoginManager
 from .config import Config  #aqui el .config estamos trallendo ese modulo de Config 
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from .mi_blueprint import mi_blueprint
 from app.productos import productos
 from app.clientes import clientes
+from app.auth import auth
 from flask_bootstrap import Bootstrap
 
 
@@ -16,6 +17,8 @@ from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 app.config.from_object(Config)
 bootstrap = Bootstrap(app)
+login = LoginManager(app)
+login.login_view="/auth/login"
 
 
 
@@ -29,6 +32,8 @@ Migrate = Migrate(app , db )
 app.register_blueprint(mi_blueprint)
 app.register_blueprint(productos)
 app.register_blueprint(clientes)
+app.register_blueprint(auth)
+
 
 
 
